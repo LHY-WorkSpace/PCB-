@@ -75,6 +75,10 @@ DocumentUniqueId=CKVBOQIB
 Path=..\..\..\AltiumDesignerLibrary\集成封装库\*.*
 IncludeSubFolders=1
 
+[SearchPath2]
+Path=..\..\..\PCB\主库\集成库\集成封装库\其它PCB结成库\STM32407VET文件\*.*
+IncludeSubFolders=1
+
 [Configuration1]
 Name=Sources
 ParameterCount=0
