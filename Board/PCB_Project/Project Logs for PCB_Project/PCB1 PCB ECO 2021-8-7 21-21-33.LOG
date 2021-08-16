@@ -1,0 +1,12 @@
+Added Component: Designator=OLED(HDR1X6)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=PB_12 Pin=OLED-1
+Added Pin To Net: NetName=PB_14 Pin=OLED-2
+Added Pin To Net: NetName=PB_15 Pin=OLED-3
+Added Pin To Net: NetName=PB_13 Pin=OLED-4
+Added Pin To Net: NetName=3V3_1 Pin=OLED-5
+Added Pin To Net: NetName=GND_2 Pin=OLED-6
+Added Member To Class: ClassName=Sheet1 Member=Component OLED Header 6

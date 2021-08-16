@@ -1,0 +1,16 @@
+Added Component: Designator=U2(LQFP-100_M)
+Added Component: Designator=U3(LQFP-100_M)
+Added Pin To Net: NetName=NetK1_1 Pin=U2-2
+Added Pin To Net: NetName=NetK1_3 Pin=U2-38
+Added Pin To Net: NetName=SD_D0 Pin=U2-65
+Added Pin To Net: NetName=SD_D1 Pin=U2-66
+Added Pin To Net: NetName=SD_D2 Pin=U2-78
+Added Pin To Net: NetName=SD_D3 Pin=U2-79
+Added Pin To Net: NetName=SD_CLK Pin=U2-80
+Added Pin To Net: NetName=SD_CMD Pin=U2-83
+Added Pin To Net: NetName=OSC_8M_IN Pin=U3-12
+Added Pin To Net: NetName=OSC_8M_OUT Pin=U3-13
+Added Pin To Net: NetName=SWD_DIO Pin=U3-72
+Added Pin To Net: NetName=SWD_CLK Pin=U3-76
+Added Member To Class: ClassName=Sheet1 Member=Component U2
+Added Member To Class: ClassName=Sheet1 Member=Component U3 STM32F407V
