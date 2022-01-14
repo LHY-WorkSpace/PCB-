@@ -71,10 +71,6 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=CKVBOQIB
 
-[GeneratedDocument1]
-DocumentPath=Project Outputs for PCB_Project\Design Rule Check - PCB1.html
-DItemRevisionGUID=
-
 [SearchPath1]
 Path=..\..\..\AltiumDesignerLibrary\¼¯³É·â×°¿â\*.*
 IncludeSubFolders=1
@@ -1072,7 +1068,7 @@ NetClassManualEnabled=1
 NetClassSeparateForBusSections=0
 
 [LibraryUpdateOptions]
-SelectedOnly=0
+SelectedOnly=1
 UpdateVariants=1
 UpdateToLatestRevision=1
 PartTypes=0
