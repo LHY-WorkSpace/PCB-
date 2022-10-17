@@ -1,0 +1,719 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 {
+			font-family : segoe ui;
+			color : black;
+			background-color : #EDE7D9;
+			padding: 0.3em;
+		}
+
+		h1 {
+			font-size: 1.2em;
+		}		
+
+		h2 {
+			font-size: 1.2em;
+		}
+
+		body {
+			font-family : segoe ui;
+		}
+
+		td, th {
+			padding: 0.5em;
+			text-align : left;
+			width: 10em;
+		}
+		th {
+			background-color : #EEEEEE;
+
+		}
+		th.column1, td.column1 {
+			text-align: left;
+			width : auto;
+		}
+		table {
+			width : 100%;
+			font-size: 0.9em;
+		}
+
+		.DRC_summary_header {
+			padding-bottom : 0.1em;
+			border : 0px solid black;
+			width: 100%;
+			align: left;
+		}
+
+		.DRC_summary_header_col1,
+		.DRC_summary_header_col2, 
+		.DRC_summary_header_col3 {
+			color : black;
+			font-size:100%;
+			padding : 0em;
+			padding-top : 0.2em;
+			padding-bottom 0.2em;
+			border : 0px solid black;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.DRC_summary_header_col1 {
+			font-weight: bold;
+			width: 8em;
+		}
+
+		.DRC_summary_header_col2 {
+			width: 0.1em;
+		
+		}
+
+		.DRC_summary_header_col3 {
+			width : auto;
+		}
+
+		.header_holder {
+		    Width = 100%;
+		    border = 0px solid green;
+		    padding = 0;
+		}
+
+
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+		{
+			left : 0;
+			top : 0;
+			padding: 0em;
+			padding-top : 0.1em;
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.front_matter_column1 {
+			width : 8em;
+			font-weight: bold;
+		}
+
+		.front_matter_column2 {
+			width: 0.1em;
+		}
+
+		.front_matter_column3 {
+			width : auto;
+		}
+
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : left;
+		}
+		.warning, .error {
+			color : red;
+			font-weight : bold;
+		}
+		tr.onmouseout_odd {
+			background-color : #white;
+		}
+		tr.onmouseout_even { 
+			background-color : #FAFAFA;
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : #EEEEEE;
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #21489e;
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}
+	</script><title>Design Rule Verification Report</title>
+</head>
+<body onload=""><img ALT="Altium" src="
+			file://D:\Altium Designer 20\Templates\AD_logo.png
+		"><h1>Design Rule Verification Report</h1>
+<table class="header_holder">
+<td class="column1">
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">2022/6/4</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">13:25:06</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">00:00:03</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3"><a href="file:///E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc" class="file"><acronym title="E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc">E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc</acronym></a></td>
+</tr>
+</table>
+</td>
+<td class="column2">
+<table class="DRC_summary_header">
+<tr>
+<td class="DRC_summary_header_col1">Warnings:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3">0</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Rule Violations:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">121</td></tr>
+</table>
+</td>
+</table><a name="IDTNKSQPO0H5QCEKGWE5DJHVECLDLG0ZHVINMFFFMK5COOMRVQOGNC"><h2>Summary</h2></a><table>
+<tr>
+<th class="column1">Warnings</th>
+<th class="column2">Count</th>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">0</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Rule Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDWWF2JQR13TEBOXQHT3CBZ123ROVH122VNHAHSBM2J1APBBKJAF3O">Clearance Constraint (Gap=3.937mil) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID0PTJFUDBRJETD54GXHLRYUAP3IKNHWBEIJXYSDDMCGV0NRKJEEUM">Short-Circuit Constraint (Allowed=Yes) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDI0JMCMGI01TCPGD4JMPQNKXT5EJIC1U0CDAQ3OCMJ0ICOZGUA4KC">Un-Routed Net Constraint ( (All) )</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDH3NKLMADWOPRHZZDM4VLVAMRWLDQIVO3BVRWOOMHX0Z2P1ZZHL3C">Modified Polygon (Allow modified: No), (Allow shelved: No)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDDY0JWEHB4HFKICQ3ZJFYGBC2YF5GPDXTOHGMDGG42J5CS3M05UON">Width Constraint (Min=7.874mil) (Max=78.74mil) (Preferred=19.685mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDNYPPP3HDVFFFFOT4PD5ZKN0JDKBIA5UAKD2JQXGTAN3Z3FV3WO5G">Routing Layers(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDSIRUR1JLWUFVORVQ5NH2RUYR5KWYA3NNBZTU3WDDHBX4XKDC1O5C">Routing Via (MinHoleWidth=5mil) (MaxHoleWidth=10mil) (PreferredHoleWidth=8mil) (MinWidth=9mil) (MaxWidth=50mil) (PreferedWidth=10mil) (All)</a></td>
+<td class="column2">83</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID0L5BDF3NCSL0DQH0C0DY4RPMEBDKBVS3QMU4FXN5BRPULIPVB42F">Differential Pairs Uncoupled Length using the Gap Constraints (Min=10mil) (Max=10mil) (Prefered=10mil)  and Width Constraints (Min=15mil) (Max=15mil) (Prefered=15mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDN34PHO4QK2SJOOI53VKFV0JWNNNV1WTMKOOR1WFA4XJGE015UMZC">Power Plane Connect Rule(Relief Connect )(Expansion=20mil) (Conductor Width=10mil) (Air Gap=10mil) (Entries=4) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID3I44EFOQ0USHIZXRJ2ZD25CE2C4CMM4XAMYDXEGHUEH0FEH2JBPG">Hole Size Constraint (Min=1mil) (Max=100mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDNCYTWOL5P142KIB0MBALEIXVSJAOZUMVL1LXHDNS5P4ZBPPLTW3N">Hole To Hole Clearance (Gap=10mil) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDV55HWV1CSOQRB3VIDY5MLB11MMI1UWBPGZCXZSPDK0HLQZHODYY">Minimum Solder Mask Sliver (Gap=5.906mil) (All),(All)</a></td>
+<td class="column2">14</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDD5W1GMDC0UE3E0XR5NNLDYDACP1BLK1CN5QIS2BQUMXSC4GBJBPL">Silk To Solder Mask (Clearance=1mil) (IsPad),(All)</a></td>
+<td class="column2">15</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDU4NALB3S0TYUJBKZRR1Q2R3L4NMFOB5M1F2D51HIHND5AUMZVUZE">Silk to Silk (Clearance=0.5mil) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID1FT520J1W3TQOJE5CGEP2UUNTGPOOR1HNBMYXUEK5SZMP32QV3OD">Net Antennae (Tolerance=0mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID42LPMPBTMVVQKWEHLRXILNUPCCTCG2BEDUKERNGNFC0RNCKVHCHI">Board Clearance Constraint (Gap=0mil) (All)</a></td>
+<td class="column2">9</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID43FZLUXVFRMDIL3XWKCS5XWZRFX3U1V0YJEMP4HWLST354WSU5IM">Height Constraint (Min=0mil) (Max=1000mil) (Prefered=500mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">121</td>
+</tr>
+</table><br><a name="IDSIRUR1JLWUFVORVQ5NH2RUYR5KWYA3NNBZTU3WDDHBX4XKDC1O5C"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Routing Via (MinHoleWidth=5mil) (MaxHoleWidth=10mil) (PreferredHoleWidth=8mil) (MinWidth=9mil) (MaxWidth=50mil) (PreferedWidth=10mil) (All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3925.661mil|Location2.X=3964.661mil|Location1.Y=3435.921mil|Location2.Y=3474.921mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3925.661mil|Location2.X=3964.661mil|Location1.Y=3435.921mil|Location2.Y=3474.921mil|Absolute=True">Routing Via Style: Via (1054.555mil,2022.555mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3937.976mil|Location2.X=3976.976mil|Location1.Y=3911.996mil|Location2.Y=3950.996mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3937.976mil|Location2.X=3976.976mil|Location1.Y=3911.996mil|Location2.Y=3950.996mil|Absolute=True">Routing Via Style: Via (1066.87mil,2498.63mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3954.606mil|Location2.X=3993.606mil|Location1.Y=3006.366mil|Location2.Y=3045.366mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3954.606mil|Location2.X=3993.606mil|Location1.Y=3006.366mil|Location2.Y=3045.366mil|Absolute=True">Routing Via Style: Via (1083.5mil,1593mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3960.106mil|Location2.X=3999.106mil|Location1.Y=3057.366mil|Location2.Y=3096.366mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3960.106mil|Location2.X=3999.106mil|Location1.Y=3057.366mil|Location2.Y=3096.366mil|Absolute=True">Routing Via Style: Via (1089mil,1644mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3965.606mil|Location2.X=4004.606mil|Location1.Y=3997.366mil|Location2.Y=4036.366mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3965.606mil|Location2.X=4004.606mil|Location1.Y=3997.366mil|Location2.Y=4036.366mil|Absolute=True">Routing Via Style: Via (1094.5mil,2584mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4040.606mil|Location2.X=4079.606mil|Location1.Y=4315.866mil|Location2.Y=4354.866mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4040.606mil|Location2.X=4079.606mil|Location1.Y=4315.866mil|Location2.Y=4354.866mil|Absolute=True">Routing Via Style: Via (1169.5mil,2902.5mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4041.106mil|Location2.X=4080.106mil|Location1.Y=1951.866mil|Location2.Y=1990.866mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4041.106mil|Location2.X=4080.106mil|Location1.Y=1951.866mil|Location2.Y=1990.866mil|Absolute=True">Routing Via Style: Via (1170mil,538.5mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4075.106mil|Location2.X=4114.106mil|Location1.Y=2772.366mil|Location2.Y=2811.366mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4075.106mil|Location2.X=4114.106mil|Location1.Y=2772.366mil|Location2.Y=2811.366mil|Absolute=True">Routing Via Style: Via (1204mil,1359mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4103.606mil|Location2.X=4142.606mil|Location1.Y=4314.866mil|Location2.Y=4353.866mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4103.606mil|Location2.X=4142.606mil|Location1.Y=4314.866mil|Location2.Y=4353.866mil|Absolute=True">Routing Via Style: Via (1232.5mil,2901.5mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4103.606mil|Location2.X=4142.606mil|Location1.Y=4381.366mil|Location2.Y=4420.366mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4103.606mil|Location2.X=4142.606mil|Location1.Y=4381.366mil|Location2.Y=4420.366mil|Absolute=True">Routing Via Style: Via (1232.5mil,2968mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2995.606mil|Location2.X=3034.606mil|Location1.Y=2524.366mil|Location2.Y=2563.366mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2995.606mil|Location2.X=3034.606mil|Location1.Y=2524.366mil|Location2.Y=2563.366mil|Absolute=True">Routing Via Style: Via (124.5mil,1111mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2996.106mil|Location2.X=3035.106mil|Location1.Y=2720.366mil|Location2.Y=2759.366mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2996.106mil|Location2.X=3035.106mil|Location1.Y=2720.366mil|Location2.Y=2759.366mil|Absolute=True">Routing Via Style: Via (125mil,1307mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4208.106mil|Location2.X=4247.106mil|Location1.Y=3970.866mil|Location2.Y=4009.866mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4208.106mil|Location2.X=4247.106mil|Location1.Y=3970.866mil|Location2.Y=4009.866mil|Absolute=True">Routing Via Style: Via (1337mil,2557.5mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4312.106mil|Location2.X=4351.106mil|Location1.Y=4279.866mil|Location2.Y=4318.866mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4312.106mil|Location2.X=4351.106mil|Location1.Y=4279.866mil|Location2.Y=4318.866mil|Absolute=True">Routing Via Style: Via (1441mil,2866.5mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4346.606mil|Location2.X=4385.606mil|Location1.Y=4248.366mil|Location2.Y=4287.366mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4346.606mil|Location2.X=4385.606mil|Location1.Y=4248.366mil|Location2.Y=4287.366mil|Absolute=True">Routing Via Style: Via (1475.5mil,2835mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4378.883mil|Location2.X=4417.883mil|Location1.Y=2580.143mil|Location2.Y=2619.143mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4378.883mil|Location2.X=4417.883mil|Location1.Y=2580.143mil|Location2.Y=2619.143mil|Absolute=True">Routing Via Style: Via (1507.777mil,1166.777mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4380.106mil|Location2.X=4419.106mil|Location1.Y=4215.366mil|Location2.Y=4254.366mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4380.106mil|Location2.X=4419.106mil|Location1.Y=4215.366mil|Location2.Y=4254.366mil|Absolute=True">Routing Via Style: Via (1509mil,2802mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4383.906mil|Location2.X=4422.906mil|Location1.Y=2379.166mil|Location2.Y=2418.166mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4383.906mil|Location2.X=4422.906mil|Location1.Y=2379.166mil|Location2.Y=2418.166mil|Absolute=True">Routing Via Style: Via (1512.8mil,965.8mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4384.2mil|Location2.X=4423.2mil|Location1.Y=2148.96mil|Location2.Y=2187.96mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4384.2mil|Location2.X=4423.2mil|Location1.Y=2148.96mil|Location2.Y=2187.96mil|Absolute=True">Routing Via Style: Via (1513.094mil,735.594mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4416.606mil|Location2.X=4455.606mil|Location1.Y=4186.366mil|Location2.Y=4225.366mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4416.606mil|Location2.X=4455.606mil|Location1.Y=4186.366mil|Location2.Y=4225.366mil|Absolute=True">Routing Via Style: Via (1545.5mil,2773mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3026.394mil|Location2.X=3065.394mil|Location1.Y=3268.538mil|Location2.Y=3307.538mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3026.394mil|Location2.X=3065.394mil|Location1.Y=3268.538mil|Location2.Y=3307.538mil|Absolute=True">Routing Via Style: Via (155.288mil,1855.172mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4447.106mil|Location2.X=4486.106mil|Location1.Y=4149.866mil|Location2.Y=4188.866mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4447.106mil|Location2.X=4486.106mil|Location1.Y=4149.866mil|Location2.Y=4188.866mil|Absolute=True">Routing Via Style: Via (1576mil,2736.5mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4476.506mil|Location2.X=4515.506mil|Location1.Y=3511.002mil|Location2.Y=3550.002mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4476.506mil|Location2.X=4515.506mil|Location1.Y=3511.002mil|Location2.Y=3550.002mil|Absolute=True">Routing Via Style: Via (1605.4mil,2097.635mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4479.813mil|Location2.X=4518.813mil|Location1.Y=3466.441mil|Location2.Y=3505.441mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4479.813mil|Location2.X=4518.813mil|Location1.Y=3466.441mil|Location2.Y=3505.441mil|Absolute=True">Routing Via Style: Via (1608.707mil,2053.075mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4483.106mil|Location2.X=4522.106mil|Location1.Y=2611.866mil|Location2.Y=2650.866mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4483.106mil|Location2.X=4522.106mil|Location1.Y=2611.866mil|Location2.Y=2650.866mil|Absolute=True">Routing Via Style: Via (1612mil,1198.5mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4484.106mil|Location2.X=4523.106mil|Location1.Y=4122.366mil|Location2.Y=4161.366mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4484.106mil|Location2.X=4523.106mil|Location1.Y=4122.366mil|Location2.Y=4161.366mil|Absolute=True">Routing Via Style: Via (1613mil,2709mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4490.256mil|Location2.X=4529.256mil|Location1.Y=2378.516mil|Location2.Y=2417.516mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4490.256mil|Location2.X=4529.256mil|Location1.Y=2378.516mil|Location2.Y=2417.516mil|Absolute=True">Routing Via Style: Via (1619.15mil,965.15mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4515.106mil|Location2.X=4554.106mil|Location1.Y=4094.866mil|Location2.Y=4133.866mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4515.106mil|Location2.X=4554.106mil|Location1.Y=4094.866mil|Location2.Y=4133.866mil|Absolute=True">Routing Via Style: Via (1644mil,2681.5mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4549.606mil|Location2.X=4588.606mil|Location1.Y=4063.366mil|Location2.Y=4102.366mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4549.606mil|Location2.X=4588.606mil|Location1.Y=4063.366mil|Location2.Y=4102.366mil|Absolute=True">Routing Via Style: Via (1678.5mil,2650mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4581.606mil|Location2.X=4620.606mil|Location1.Y=4032.866mil|Location2.Y=4071.866mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4581.606mil|Location2.X=4620.606mil|Location1.Y=4032.866mil|Location2.Y=4071.866mil|Absolute=True">Routing Via Style: Via (1710.5mil,2619.5mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4595.106mil|Location2.X=4634.106mil|Location1.Y=2605.866mil|Location2.Y=2644.866mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4595.106mil|Location2.X=4634.106mil|Location1.Y=2605.866mil|Location2.Y=2644.866mil|Absolute=True">Routing Via Style: Via (1724mil,1192.5mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4596.606mil|Location2.X=4635.606mil|Location1.Y=2381.366mil|Location2.Y=2420.366mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4596.606mil|Location2.X=4635.606mil|Location1.Y=2381.366mil|Location2.Y=2420.366mil|Absolute=True">Routing Via Style: Via (1725.5mil,968mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4610.624mil|Location2.X=4649.624mil|Location1.Y=3545.762mil|Location2.Y=3584.762mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4610.624mil|Location2.X=4649.624mil|Location1.Y=3545.762mil|Location2.Y=3584.762mil|Absolute=True">Routing Via Style: Via (1739.518mil,2132.396mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4645.106mil|Location2.X=4684.106mil|Location1.Y=2084.366mil|Location2.Y=2123.366mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4645.106mil|Location2.X=4684.106mil|Location1.Y=2084.366mil|Location2.Y=2123.366mil|Absolute=True">Routing Via Style: Via (1774mil,671mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4651.606mil|Location2.X=4690.606mil|Location1.Y=2380.866mil|Location2.Y=2419.866mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4651.606mil|Location2.X=4690.606mil|Location1.Y=2380.866mil|Location2.Y=2419.866mil|Absolute=True">Routing Via Style: Via (1780.5mil,967.5mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4652.106mil|Location2.X=4691.106mil|Location1.Y=2012.866mil|Location2.Y=2051.866mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4652.106mil|Location2.X=4691.106mil|Location1.Y=2012.866mil|Location2.Y=2051.866mil|Absolute=True">Routing Via Style: Via (1781mil,599.5mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3051.741mil|Location2.X=3090.741mil|Location1.Y=3310.09mil|Location2.Y=3349.09mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3051.741mil|Location2.X=3090.741mil|Location1.Y=3310.09mil|Location2.Y=3349.09mil|Absolute=True">Routing Via Style: Via (180.635mil,1896.724mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4690.106mil|Location2.X=4729.106mil|Location1.Y=1973.366mil|Location2.Y=2012.366mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4690.106mil|Location2.X=4729.106mil|Location1.Y=1973.366mil|Location2.Y=2012.366mil|Absolute=True">Routing Via Style: Via (1819mil,560mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4693.106mil|Location2.X=4732.106mil|Location1.Y=1917.866mil|Location2.Y=1956.866mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4693.106mil|Location2.X=4732.106mil|Location1.Y=1917.866mil|Location2.Y=1956.866mil|Absolute=True">Routing Via Style: Via (1822mil,504.5mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4697.106mil|Location2.X=4736.106mil|Location1.Y=2651.366mil|Location2.Y=2690.366mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4697.106mil|Location2.X=4736.106mil|Location1.Y=2651.366mil|Location2.Y=2690.366mil|Absolute=True">Routing Via Style: Via (1826mil,1238mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3056.063mil|Location2.X=3095.063mil|Location1.Y=4174.582mil|Location2.Y=4213.582mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3056.063mil|Location2.X=3095.063mil|Location1.Y=4174.582mil|Location2.Y=4213.582mil|Absolute=True">Routing Via Style: Via (184.957mil,2761.216mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3086.669mil|Location2.X=3125.669mil|Location1.Y=4121.531mil|Location2.Y=4160.531mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3086.669mil|Location2.X=3125.669mil|Location1.Y=4121.531mil|Location2.Y=4160.531mil|Absolute=True">Routing Via Style: Via (215.562mil,2708.165mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3125.106mil|Location2.X=3164.106mil|Location1.Y=2280.047mil|Location2.Y=2319.047mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3125.106mil|Location2.X=3164.106mil|Location1.Y=2280.047mil|Location2.Y=2319.047mil|Absolute=True">Routing Via Style: Via (254mil,866.681mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2899.606mil|Location2.X=2938.606mil|Location1.Y=3177.366mil|Location2.Y=3216.366mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2899.606mil|Location2.X=2938.606mil|Location1.Y=3177.366mil|Location2.Y=3216.366mil|Absolute=True">Routing Via Style: Via (28.5mil,1764mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3218.606mil|Location2.X=3257.606mil|Location1.Y=3369.866mil|Location2.Y=3408.866mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3218.606mil|Location2.X=3257.606mil|Location1.Y=3369.866mil|Location2.Y=3408.866mil|Absolute=True">Routing Via Style: Via (347.5mil,1956.5mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3247.106mil|Location2.X=3286.106mil|Location1.Y=4259.366mil|Location2.Y=4298.366mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3247.106mil|Location2.X=3286.106mil|Location1.Y=4259.366mil|Location2.Y=4298.366mil|Absolute=True">Routing Via Style: Via (376mil,2846mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3265.106mil|Location2.X=3304.106mil|Location1.Y=3372.366mil|Location2.Y=3411.366mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3265.106mil|Location2.X=3304.106mil|Location1.Y=3372.366mil|Location2.Y=3411.366mil|Absolute=True">Routing Via Style: Via (394mil,1959mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3278.632mil|Location2.X=3317.632mil|Location1.Y=3625.32mil|Location2.Y=3664.32mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3278.632mil|Location2.X=3317.632mil|Location1.Y=3625.32mil|Location2.Y=3664.32mil|Absolute=True">Routing Via Style: Via (407.526mil,2211.954mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3303.32mil|Location2.X=3342.32mil|Location1.Y=3317.529mil|Location2.Y=3356.529mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3303.32mil|Location2.X=3342.32mil|Location1.Y=3317.529mil|Location2.Y=3356.529mil|Absolute=True">Routing Via Style: Via (432.214mil,1904.163mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3304.249mil|Location2.X=3343.249mil|Location1.Y=3276.989mil|Location2.Y=3315.989mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3304.249mil|Location2.X=3343.249mil|Location1.Y=3276.989mil|Location2.Y=3315.989mil|Absolute=True">Routing Via Style: Via (433.142mil,1863.623mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3305.649mil|Location2.X=3344.649mil|Location1.Y=3232.319mil|Location2.Y=3271.319mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3305.649mil|Location2.X=3344.649mil|Location1.Y=3232.319mil|Location2.Y=3271.319mil|Absolute=True">Routing Via Style: Via (434.543mil,1818.953mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3306.523mil|Location2.X=3345.523mil|Location1.Y=4389.529mil|Location2.Y=4428.529mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3306.523mil|Location2.X=3345.523mil|Location1.Y=4389.529mil|Location2.Y=4428.529mil|Absolute=True">Routing Via Style: Via (435.417mil,2976.163mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3309.868mil|Location2.X=3348.868mil|Location1.Y=4315.729mil|Location2.Y=4354.729mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3309.868mil|Location2.X=3348.868mil|Location1.Y=4315.729mil|Location2.Y=4354.729mil|Absolute=True">Routing Via Style: Via (438.761mil,2902.363mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3310.106mil|Location2.X=3349.106mil|Location1.Y=1634.866mil|Location2.Y=1673.866mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3310.106mil|Location2.X=3349.106mil|Location1.Y=1634.866mil|Location2.Y=1673.866mil|Absolute=True">Routing Via Style: Via (439mil,221.5mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3311.106mil|Location2.X=3350.106mil|Location1.Y=3371.366mil|Location2.Y=3410.366mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3311.106mil|Location2.X=3350.106mil|Location1.Y=3371.366mil|Location2.Y=3410.366mil|Absolute=True">Routing Via Style: Via (440mil,1958mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3326.611mil|Location2.X=3365.611mil|Location1.Y=1795.866mil|Location2.Y=1834.866mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3326.611mil|Location2.X=3365.611mil|Location1.Y=1795.866mil|Location2.Y=1834.866mil|Absolute=True">Routing Via Style: Via (455.505mil,382.5mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2918.606mil|Location2.X=2957.606mil|Location1.Y=3246.366mil|Location2.Y=3285.366mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2918.606mil|Location2.X=2957.606mil|Location1.Y=3246.366mil|Location2.Y=3285.366mil|Absolute=True">Routing Via Style: Via (47.5mil,1833mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3343.444mil|Location2.X=3382.444mil|Location1.Y=3687.366mil|Location2.Y=3726.366mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3343.444mil|Location2.X=3382.444mil|Location1.Y=3687.366mil|Location2.Y=3726.366mil|Absolute=True">Routing Via Style: Via (472.338mil,2274mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3343.444mil|Location2.X=3382.444mil|Location1.Y=3734.304mil|Location2.Y=3773.304mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3343.444mil|Location2.X=3382.444mil|Location1.Y=3734.304mil|Location2.Y=3773.304mil|Absolute=True">Routing Via Style: Via (472.338mil,2320.938mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3343.444mil|Location2.X=3382.444mil|Location1.Y=3781.241mil|Location2.Y=3820.241mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3343.444mil|Location2.X=3382.444mil|Location1.Y=3781.241mil|Location2.Y=3820.241mil|Absolute=True">Routing Via Style: Via (472.338mil,2367.875mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3343.444mil|Location2.X=3382.444mil|Location1.Y=3828.179mil|Location2.Y=3867.179mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3343.444mil|Location2.X=3382.444mil|Location1.Y=3828.179mil|Location2.Y=3867.179mil|Absolute=True">Routing Via Style: Via (472.338mil,2414.812mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3343.444mil|Location2.X=3382.444mil|Location1.Y=3875.116mil|Location2.Y=3914.116mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3343.444mil|Location2.X=3382.444mil|Location1.Y=3875.116mil|Location2.Y=3914.116mil|Absolute=True">Routing Via Style: Via (472.338mil,2461.75mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3343.444mil|Location2.X=3382.444mil|Location1.Y=3982.866mil|Location2.Y=4021.866mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3343.444mil|Location2.X=3382.444mil|Location1.Y=3982.866mil|Location2.Y=4021.866mil|Absolute=True">Routing Via Style: Via (472.338mil,2569.5mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3376.036mil|Location2.X=3415.036mil|Location1.Y=4285.168mil|Location2.Y=4324.168mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3376.036mil|Location2.X=3415.036mil|Location1.Y=4285.168mil|Location2.Y=4324.168mil|Absolute=True">Routing Via Style: Via (504.93mil,2871.802mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3376.597mil|Location2.X=3415.597mil|Location1.Y=4329.468mil|Location2.Y=4368.468mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3376.597mil|Location2.X=3415.597mil|Location1.Y=4329.468mil|Location2.Y=4368.468mil|Absolute=True">Routing Via Style: Via (505.49mil,2916.102mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3376.606mil|Location2.X=3415.606mil|Location1.Y=2976.366mil|Location2.Y=3015.366mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3376.606mil|Location2.X=3415.606mil|Location1.Y=2976.366mil|Location2.Y=3015.366mil|Absolute=True">Routing Via Style: Via (505.5mil,1563mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3377.158mil|Location2.X=3416.158mil|Location1.Y=4242.271mil|Location2.Y=4281.271mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3377.158mil|Location2.X=3416.158mil|Location1.Y=4242.271mil|Location2.Y=4281.271mil|Absolute=True">Routing Via Style: Via (506.051mil,2828.905mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3385.106mil|Location2.X=3424.106mil|Location1.Y=1795.866mil|Location2.Y=1834.866mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3385.106mil|Location2.X=3424.106mil|Location1.Y=1795.866mil|Location2.Y=1834.866mil|Absolute=True">Routing Via Style: Via (514mil,382.5mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3434.106mil|Location2.X=3473.106mil|Location1.Y=3277.366mil|Location2.Y=3316.366mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3434.106mil|Location2.X=3473.106mil|Location1.Y=3277.366mil|Location2.Y=3316.366mil|Absolute=True">Routing Via Style: Via (563mil,1864mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3446.106mil|Location2.X=3485.106mil|Location1.Y=3009.866mil|Location2.Y=3048.866mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3446.106mil|Location2.X=3485.106mil|Location1.Y=3009.866mil|Location2.Y=3048.866mil|Absolute=True">Routing Via Style: Via (575mil,1596.5mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3451.606mil|Location2.X=3490.606mil|Location1.Y=1634.866mil|Location2.Y=1673.866mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3451.606mil|Location2.X=3490.606mil|Location1.Y=1634.866mil|Location2.Y=1673.866mil|Absolute=True">Routing Via Style: Via (580.5mil,221.5mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3561.606mil|Location2.X=3600.606mil|Location1.Y=3883.366mil|Location2.Y=3922.366mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3561.606mil|Location2.X=3600.606mil|Location1.Y=3883.366mil|Location2.Y=3922.366mil|Absolute=True">Routing Via Style: Via (690.5mil,2470mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2940.106mil|Location2.X=2979.106mil|Location1.Y=2386.366mil|Location2.Y=2425.366mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2940.106mil|Location2.X=2979.106mil|Location1.Y=2386.366mil|Location2.Y=2425.366mil|Absolute=True">Routing Via Style: Via (69mil,973mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3667.59mil|Location2.X=3706.59mil|Location1.Y=3990.6mil|Location2.Y=4029.6mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3667.59mil|Location2.X=3706.59mil|Location1.Y=3990.6mil|Location2.Y=4029.6mil|Absolute=True">Routing Via Style: Via (796.483mil,2577.234mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3729.818mil|Location2.X=3768.818mil|Location1.Y=3048.23mil|Location2.Y=3087.23mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3729.818mil|Location2.X=3768.818mil|Location1.Y=3048.23mil|Location2.Y=3087.23mil|Absolute=True">Routing Via Style: Via (858.711mil,1634.863mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3731.038mil|Location2.X=3770.038mil|Location1.Y=3990.6mil|Location2.Y=4029.6mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3731.038mil|Location2.X=3770.038mil|Location1.Y=3990.6mil|Location2.Y=4029.6mil|Absolute=True">Routing Via Style: Via (859.932mil,2577.234mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3785.932mil|Location2.X=3824.932mil|Location1.Y=3377.826mil|Location2.Y=3416.826mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3785.932mil|Location2.X=3824.932mil|Location1.Y=3377.826mil|Location2.Y=3416.826mil|Absolute=True">Routing Via Style: Via (914.825mil,1964.46mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3786.366mil|Location2.X=3825.366mil|Location1.Y=3418.366mil|Location2.Y=3457.366mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3786.366mil|Location2.X=3825.366mil|Location1.Y=3418.366mil|Location2.Y=3457.366mil|Absolute=True">Routing Via Style: Via (915.26mil,2005mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3786.695mil|Location2.X=3825.695mil|Location1.Y=3335.318mil|Location2.Y=3374.318mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3786.695mil|Location2.X=3825.695mil|Location1.Y=3335.318mil|Location2.Y=3374.318mil|Absolute=True">Routing Via Style: Via (915.588mil,1921.952mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3787.435mil|Location2.X=3826.435mil|Location1.Y=3291.952mil|Location2.Y=3330.952mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3787.435mil|Location2.X=3826.435mil|Location1.Y=3291.952mil|Location2.Y=3330.952mil|Absolute=True">Routing Via Style: Via (916.329mil,1878.586mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3804.606mil|Location2.X=3843.606mil|Location1.Y=2217.366mil|Location2.Y=2256.366mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3804.606mil|Location2.X=3843.606mil|Location1.Y=2217.366mil|Location2.Y=2256.366mil|Absolute=True">Routing Via Style: Via (933.5mil,804mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3825.106mil|Location2.X=3864.106mil|Location1.Y=2161.366mil|Location2.Y=2200.366mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3825.106mil|Location2.X=3864.106mil|Location1.Y=2161.366mil|Location2.Y=2200.366mil|Absolute=True">Routing Via Style: Via (954mil,748mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3851.294mil|Location2.X=3890.294mil|Location1.Y=3999.179mil|Location2.Y=4038.179mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3851.294mil|Location2.X=3890.294mil|Location1.Y=3999.179mil|Location2.Y=4038.179mil|Absolute=True">Routing Via Style: Via (980.188mil,2585.812mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDV55HWV1CSOQRB3VIDY5MLB11MMI1UWBPGZCXZSPDK0HLQZHODYY"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Minimum Solder Mask Sliver (Gap=5.906mil) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3253.167mil|Location2.X=3260.322mil|Location1.Y=1707.67mil|Location2.Y=1714.825mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3253.167mil|Location2.X=3260.322mil|Location1.Y=1707.67mil|Location2.Y=1714.825mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (4.594mil &lt; 5.906mil) Between Pad 1-1(340.156mil,282.775mil) on Multi-Layer And Pad 1-A1-B12(384.246mil,305.019mil) on Top Layer [Top Solder] Mask Sliver [4.594mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3541.356mil|Location2.X=3548.511mil|Location1.Y=1707.67mil|Location2.Y=1714.825mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3541.356mil|Location2.X=3548.511mil|Location1.Y=1707.67mil|Location2.Y=1714.825mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (4.6mil &lt; 5.906mil) Between Pad 1-4(680.312mil,282.775mil) on Multi-Layer And Pad 1-B1-A12(636.216mil,305.019mil) on Top Layer [Top Solder] Mask Sliver [4.6mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3141.029mil|Location2.X=3148.184mil|Location1.Y=2275.314mil|Location2.Y=2282.469mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3141.029mil|Location2.X=3148.184mil|Location1.Y=2275.314mil|Location2.Y=2282.469mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (3.311mil &lt; 5.906mil) Between Pad BAT1-1(245.5mil,801mil) on Bottom Layer And Via (254mil,866.681mil) from Top Layer to Bottom Layer [Bottom Solder] Mask Sliver [3.311mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3025.264mil|Location2.X=3033.046mil|Location1.Y=3295.549mil|Location2.Y=3304.946mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3025.264mil|Location2.X=3033.046mil|Location1.Y=3295.549mil|Location2.Y=3304.946mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (2.682mil &lt; 5.906mil) Between Pad RST1-1(92.5mil,1896mil) on Multi-Layer And Via (155.288mil,1855.172mil) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [2.682mil] / [Bottom Solder] Mask Sliver [2.682mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2947.086mil|Location2.X=2956.218mil|Location1.Y=3279.212mil|Location2.Y=3287.024mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2947.086mil|Location2.X=2956.218mil|Location1.Y=3279.212mil|Location2.Y=3287.024mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (5.208mil &lt; 5.906mil) Between Pad RST1-1(92.5mil,1896mil) on Multi-Layer And Via (47.5mil,1833mil) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [5.208mil] / [Bottom Solder] Mask Sliver [5.208mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4397.214mil|Location2.X=4404.369mil|Location1.Y=1594.627mil|Location2.Y=1601.782mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4397.214mil|Location2.X=4404.369mil|Location1.Y=1594.627mil|Location2.Y=1601.782mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (3.811mil &lt; 5.906mil) Between Pad S1-1(1529.87mil,198.866mil) on Top Layer And Pad S1-2(1490.5mil,198.866mil) on Top Layer [Top Solder] Mask Sliver [3.811mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4357.843mil|Location2.X=4364.999mil|Location1.Y=1594.627mil|Location2.Y=1601.782mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4357.843mil|Location2.X=4364.999mil|Location1.Y=1594.627mil|Location2.Y=1601.782mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (3.811mil &lt; 5.906mil) Between Pad S1-2(1490.5mil,198.866mil) on Top Layer And Pad S1-3(1451.13mil,198.866mil) on Top Layer [Top Solder] Mask Sliver [3.811mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4195.518mil|Location2.X=4202.673mil|Location1.Y=2311.013mil|Location2.Y=2318.169mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4195.518mil|Location2.X=4202.673mil|Location1.Y=2311.013mil|Location2.Y=2318.169mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (5.779mil &lt; 5.906mil) Between Pad SD1-0(1340.048mil,912.236mil) on Bottom Layer And Pad SD1-9(1315.362mil,861.056mil) on Bottom Layer [Bottom Solder] Mask Sliver [5.779mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4515.529mil|Location2.X=4523.419mil|Location1.Y=4124.538mil|Location2.Y=4132.952mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4515.529mil|Location2.X=4523.419mil|Location1.Y=4124.538mil|Location2.Y=4132.952mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (3.44mil &lt; 5.906mil) Between Via (1613mil,2709mil) from Top Layer to Bottom Layer And Via (1644mil,2681.5mil) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [3.44mil] / [Bottom Solder] Mask Sliver [3.44mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3319.707mil|Location2.X=3326.862mil|Location1.Y=3313.181mil|Location2.Y=3320.337mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3319.707mil|Location2.X=3326.862mil|Location1.Y=3313.181mil|Location2.Y=3320.337mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (2.551mil &lt; 5.906mil) Between Via (432.214mil,1904.163mil) from Top Layer to Bottom Layer And Via (433.142mil,1863.623mil) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [2.551mil] / [Bottom Solder] Mask Sliver [2.551mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3392.519mil|Location2.X=3399.675mil|Location1.Y=4279.642mil|Location2.Y=4286.797mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3392.519mil|Location2.X=3399.675mil|Location1.Y=4279.642mil|Location2.Y=4286.797mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (4.912mil &lt; 5.906mil) Between Via (504.93mil,2871.802mil) from Top Layer to Bottom Layer And Via (506.051mil,2828.905mil) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [4.912mil] / [Bottom Solder] Mask Sliver [4.912mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3802.071mil|Location2.X=3809.227mil|Location1.Y=3414.019mil|Location2.Y=3421.174mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3802.071mil|Location2.X=3809.227mil|Location1.Y=3414.019mil|Location2.Y=3421.174mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (2.542mil &lt; 5.906mil) Between Via (914.825mil,1964.46mil) from Top Layer to Bottom Layer And Via (915.26mil,2005mil) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [2.542mil] / [Bottom Solder] Mask Sliver [2.542mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3802.235mil|Location2.X=3809.391mil|Location1.Y=3372.495mil|Location2.Y=3379.65mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3802.235mil|Location2.X=3809.391mil|Location1.Y=3372.495mil|Location2.Y=3379.65mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (4.515mil &lt; 5.906mil) Between Via (914.825mil,1964.46mil) from Top Layer to Bottom Layer And Via (915.588mil,1921.952mil) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [4.515mil] / [Bottom Solder] Mask Sliver [4.515mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3802.987mil|Location2.X=3810.143mil|Location1.Y=3329.557mil|Location2.Y=3336.713mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3802.987mil|Location2.X=3810.143mil|Location1.Y=3329.557mil|Location2.Y=3336.713mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (5.373mil &lt; 5.906mil) Between Via (915.588mil,1921.952mil) from Top Layer to Bottom Layer And Via (916.329mil,1878.586mil) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [5.372mil] / [Bottom Solder] Mask Sliver [5.372mil]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDD5W1GMDC0UE3E0XR5NNLDYDACP1BLK1CN5QIS2BQUMXSC4GBJBPL"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Silk To Solder Mask (Clearance=1mil) (IsPad),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3770.401mil|Location2.X=3772.068mil|Location1.Y=2242.981mil|Location2.Y=2244.648mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3770.401mil|Location2.X=3772.068mil|Location1.Y=2242.981mil|Location2.Y=2244.648mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 1mil) Between Arc (585.5mil,801mil) on Bottom Overlay And Pad BAT1-2(905.5mil,801mil) on Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3175.273mil|Location2.X=3176.94mil|Location1.Y=2198.033mil|Location2.Y=2199.699mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3175.273mil|Location2.X=3176.94mil|Location1.Y=2198.033mil|Location2.Y=2199.699mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 1mil) Between Pad BAT1-1(245.5mil,801mil) on Bottom Layer And Track (285.5mil,561mil)(285.5mil,761mil) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3175.273mil|Location2.X=3176.94mil|Location1.Y=2272.403mil|Location2.Y=2274.069mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3175.273mil|Location2.X=3176.94mil|Location1.Y=2272.403mil|Location2.Y=2274.069mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 1mil) Between Pad BAT1-1(245.5mil,801mil) on Bottom Layer And Track (285.5mil,841mil)(285.5mil,1032.716mil) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4281.848mil|Location2.X=4283.514mil|Location1.Y=1614.167mil|Location2.Y=1615.833mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4281.848mil|Location2.X=4283.514mil|Location1.Y=1614.167mil|Location2.Y=1615.833mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 1mil) Between Pad S1-0(1382.232mil,171.307mil) on Top Layer And Track (1392.075mil,182.134mil)(1588.925mil,182.134mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4281.848mil|Location2.X=4283.514mil|Location1.Y=1614.167mil|Location2.Y=1615.833mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4281.848mil|Location2.X=4283.514mil|Location1.Y=1614.167mil|Location2.Y=1615.833mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 1mil) Between Pad S1-0(1382.232mil,171.307mil) on Top Layer And Track (1392.075mil,73.866mil)(1392.075mil,182.134mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4281.848mil|Location2.X=4283.514mil|Location1.Y=1508.852mil|Location2.Y=1510.518mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4281.848mil|Location2.X=4283.514mil|Location1.Y=1508.852mil|Location2.Y=1510.518mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 1mil) Between Pad S1-0(1382.232mil,84.693mil) on Top Layer And Track (1392.075mil,73.866mil)(1392.075mil,182.134mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4285.539mil|Location2.X=4287.205mil|Location1.Y=1505.899mil|Location2.Y=1507.565mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4285.539mil|Location2.X=4287.205mil|Location1.Y=1505.899mil|Location2.Y=1507.565mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 1mil) Between Pad S1-0(1382.232mil,84.693mil) on Top Layer And Track (1392.075mil,73.866mil)(1588.925mil,73.866mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4478.698mil|Location2.X=4480.365mil|Location1.Y=1614.167mil|Location2.Y=1615.833mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4478.698mil|Location2.X=4480.365mil|Location1.Y=1614.167mil|Location2.Y=1615.833mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 1mil) Between Pad S1-0(1598.768mil,171.307mil) on Top Layer And Track (1392.075mil,182.134mil)(1588.925mil,182.134mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4478.698mil|Location2.X=4480.365mil|Location1.Y=1614.167mil|Location2.Y=1615.833mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4478.698mil|Location2.X=4480.365mil|Location1.Y=1614.167mil|Location2.Y=1615.833mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 1mil) Between Pad S1-0(1598.768mil,171.307mil) on Top Layer And Track (1588.925mil,73.866mil)(1588.925mil,182.134mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4478.698mil|Location2.X=4480.365mil|Location1.Y=1505.899mil|Location2.Y=1507.565mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4478.698mil|Location2.X=4480.365mil|Location1.Y=1505.899mil|Location2.Y=1507.565mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 1mil) Between Pad S1-0(1598.768mil,84.693mil) on Top Layer And Track (1392.075mil,73.866mil)(1588.925mil,73.866mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4478.698mil|Location2.X=4480.365mil|Location1.Y=1524.6mil|Location2.Y=1526.266mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4478.698mil|Location2.X=4480.365mil|Location1.Y=1524.6mil|Location2.Y=1526.266mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 1mil) Between Pad S1-0(1598.768mil,84.693mil) on Top Layer And Track (1588.925mil,73.866mil)(1588.925mil,182.134mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4427.452mil|Location2.X=4429.118mil|Location1.Y=1614.167mil|Location2.Y=1615.833mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4427.452mil|Location2.X=4429.118mil|Location1.Y=1614.167mil|Location2.Y=1615.833mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 1mil) Between Pad S1-1(1529.87mil,198.866mil) on Top Layer And Track (1392.075mil,182.134mil)(1588.925mil,182.134mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4388.081mil|Location2.X=4389.748mil|Location1.Y=1614.167mil|Location2.Y=1615.833mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4388.081mil|Location2.X=4389.748mil|Location1.Y=1614.167mil|Location2.Y=1615.833mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 1mil) Between Pad S1-2(1490.5mil,198.866mil) on Top Layer And Track (1392.075mil,182.134mil)(1588.925mil,182.134mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4348.711mil|Location2.X=4350.378mil|Location1.Y=1614.167mil|Location2.Y=1615.833mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4348.711mil|Location2.X=4350.378mil|Location1.Y=1614.167mil|Location2.Y=1615.833mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 1mil) Between Pad S1-3(1451.13mil,198.866mil) on Top Layer And Track (1392.075mil,182.134mil)(1588.925mil,182.134mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4640.689mil|Location2.X=4642.355mil|Location1.Y=1703.631mil|Location2.Y=1705.297mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4640.689mil|Location2.X=4642.355mil|Location1.Y=1703.631mil|Location2.Y=1705.297mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 1mil) Between Pad SD1-0(1718mil,302mil) on Bottom Layer And Track (1270.362mil,271.598mil)(1804.362mil,271.598mil) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0mil]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="ID42LPMPBTMVVQKWEHLRXILNUPCCTCG2BEDUKERNGNFC0RNCKVHCHI"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Board Clearance Constraint (Gap=0mil) (All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2889.832mil|Location2.X=2901.082mil|Location1.Y=3241.241mil|Location2.Y=3252.491mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2889.832mil|Location2.X=2901.082mil|Location1.Y=3241.241mil|Location2.Y=3252.491mil|Absolute=True">Board Outline Clearance(Outline Edge): (9.299mil &lt; 10mil) Between Board Edge And Track (14.5mil,1814mil)(14.5mil,1957mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2889.832mil|Location2.X=2901.082mil|Location1.Y=3241.241mil|Location2.Y=3252.491mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2889.832mil|Location2.X=2901.082mil|Location1.Y=3241.241mil|Location2.Y=3252.491mil|Absolute=True">Board Outline Clearance(Outline Edge): (9.299mil &lt; 10mil) Between Board Edge And Track (14.5mil,1814mil)(28.5mil,1800mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2889.832mil|Location2.X=2901.082mil|Location1.Y=3384.241mil|Location2.Y=3395.491mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2889.832mil|Location2.X=2901.082mil|Location1.Y=3384.241mil|Location2.Y=3395.491mil|Absolute=True">Board Outline Clearance(Outline Edge): (9.299mil &lt; 10mil) Between Board Edge And Track (14.5mil,1957mil)(184.957mil,2127.456mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4328.552mil|Location2.X=4339.802mil|Location1.Y=1431.741mil|Location2.Y=1442.991mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4328.552mil|Location2.X=4339.802mil|Location1.Y=1431.741mil|Location2.Y=1442.991mil|Absolute=True">Board Outline Clearance(Outline Edge): (9mil &lt; 10mil) Between Board Edge And Track (1443.571mil,14mil)(1443.571mil,73.866mil) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4328.552mil|Location2.X=4339.802mil|Location1.Y=1431.741mil|Location2.Y=1442.991mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4328.552mil|Location2.X=4339.802mil|Location1.Y=1431.741mil|Location2.Y=1442.991mil|Absolute=True">Board Outline Clearance(Outline Edge): (9mil &lt; 10mil) Between Board Edge And Track (1443.571mil,14mil)(1490.5mil,14mil) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4375.481mil|Location2.X=4386.731mil|Location1.Y=1431.741mil|Location2.Y=1442.991mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4375.481mil|Location2.X=4386.731mil|Location1.Y=1431.741mil|Location2.Y=1442.991mil|Absolute=True">Board Outline Clearance(Outline Edge): (9mil &lt; 10mil) Between Board Edge And Track (1490.5mil,14mil)(1490.5mil,73.866mil) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3215.218mil|Location2.X=3226.468mil|Location1.Y=1430.55mil|Location2.Y=1441.8mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3215.218mil|Location2.X=3226.468mil|Location1.Y=1430.55mil|Location2.Y=1441.8mil|Absolute=True">Board Outline Clearance(Outline Edge): (6.611mil &lt; 10mil) Between Board Edge And Track (330.236mil,11.614mil)(330.236mil,71.614mil) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3215.218mil|Location2.X=3226.468mil|Location1.Y=1430.55mil|Location2.Y=1441.8mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3215.218mil|Location2.X=3226.468mil|Location1.Y=1430.55mil|Location2.Y=1441.8mil|Absolute=True">Board Outline Clearance(Outline Edge): (6.611mil &lt; 10mil) Between Board Edge And Track (330.236mil,11.614mil)(690.236mil,11.614mil) on Top Overlay </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3575.218mil|Location2.X=3586.468mil|Location1.Y=1430.549mil|Location2.Y=1441.799mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3575.218mil|Location2.X=3586.468mil|Location1.Y=1430.549mil|Location2.Y=1441.799mil|Absolute=True">Board Outline Clearance(Outline Edge): (6.612mil &lt; 10mil) Between Board Edge And Track (690.236mil,11.614mil)(690.236mil,71.614mil) on Top Overlay </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br></body>
+</html>

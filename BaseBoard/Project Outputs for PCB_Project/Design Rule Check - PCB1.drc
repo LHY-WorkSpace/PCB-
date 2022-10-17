@@ -1,0 +1,181 @@
+Protel Design System Design Rule Check
+PCB File : E:\WorkSpace\PCB\PCB-Project\BaseBoard\PCB1.PcbDoc
+Date     : 2022/6/4
+Time     : 13:25:06
+
+Processing Rule : Clearance Constraint (Gap=3.937mil) (All),(All)
+Rule Violations :0
+
+Processing Rule : Short-Circuit Constraint (Allowed=Yes) (All),(All)
+Rule Violations :0
+
+Processing Rule : Un-Routed Net Constraint ( (All) )
+Rule Violations :0
+
+Processing Rule : Modified Polygon (Allow modified: No), (Allow shelved: No)
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=7.874mil) (Max=78.74mil) (Preferred=19.685mil) (All)
+Rule Violations :0
+
+Processing Rule : Routing Layers(All)
+Rule Violations :0
+
+Processing Rule : Routing Via (MinHoleWidth=5mil) (MaxHoleWidth=10mil) (PreferredHoleWidth=8mil) (MinWidth=9mil) (MaxWidth=50mil) (PreferedWidth=10mil) (All)
+   Violation between Routing Via Style: Via (1054.555mil,2022.555mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil
+   Violation between Routing Via Style: Via (1066.87mil,2498.63mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil
+   Violation between Routing Via Style: Via (1083.5mil,1593mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil
+   Violation between Routing Via Style: Via (1089mil,1644mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil
+   Violation between Routing Via Style: Via (1094.5mil,2584mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil
+   Violation between Routing Via Style: Via (1169.5mil,2902.5mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil
+   Violation between Routing Via Style: Via (1170mil,538.5mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil
+   Violation between Routing Via Style: Via (1204mil,1359mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil
+   Violation between Routing Via Style: Via (1232.5mil,2901.5mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil
+   Violation between Routing Via Style: Via (1232.5mil,2968mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil
+   Violation between Routing Via Style: Via (124.5mil,1111mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil
+   Violation between Routing Via Style: Via (125mil,1307mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil
+   Violation between Routing Via Style: Via (1337mil,2557.5mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil
+   Violation between Routing Via Style: Via (1441mil,2866.5mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil
+   Violation between Routing Via Style: Via (1475.5mil,2835mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil
+   Violation between Routing Via Style: Via (1507.777mil,1166.777mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil
+   Violation between Routing Via Style: Via (1509mil,2802mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil
+   Violation between Routing Via Style: Via (1512.8mil,965.8mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil
+   Violation between Routing Via Style: Via (1513.094mil,735.594mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil
+   Violation between Routing Via Style: Via (1545.5mil,2773mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil
+   Violation between Routing Via Style: Via (155.288mil,1855.172mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil
+   Violation between Routing Via Style: Via (1576mil,2736.5mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil
+   Violation between Routing Via Style: Via (1605.4mil,2097.635mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil
+   Violation between Routing Via Style: Via (1608.707mil,2053.075mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil
+   Violation between Routing Via Style: Via (1612mil,1198.5mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil
+   Violation between Routing Via Style: Via (1613mil,2709mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil
+   Violation between Routing Via Style: Via (1619.15mil,965.15mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil
+   Violation between Routing Via Style: Via (1644mil,2681.5mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil
+   Violation between Routing Via Style: Via (1678.5mil,2650mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil
+   Violation between Routing Via Style: Via (1710.5mil,2619.5mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil
+   Violation between Routing Via Style: Via (1724mil,1192.5mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil
+   Violation between Routing Via Style: Via (1725.5mil,968mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil
+   Violation between Routing Via Style: Via (1739.518mil,2132.396mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil
+   Violation between Routing Via Style: Via (1774mil,671mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil
+   Violation between Routing Via Style: Via (1780.5mil,967.5mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil
+   Violation between Routing Via Style: Via (1781mil,599.5mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil
+   Violation between Routing Via Style: Via (180.635mil,1896.724mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil
+   Violation between Routing Via Style: Via (1819mil,560mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil
+   Violation between Routing Via Style: Via (1822mil,504.5mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil
+   Violation between Routing Via Style: Via (1826mil,1238mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil
+   Violation between Routing Via Style: Via (184.957mil,2761.216mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil
+   Violation between Routing Via Style: Via (215.562mil,2708.165mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil
+   Violation between Routing Via Style: Via (254mil,866.681mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil
+   Violation between Routing Via Style: Via (28.5mil,1764mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil
+   Violation between Routing Via Style: Via (347.5mil,1956.5mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil
+   Violation between Routing Via Style: Via (376mil,2846mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil
+   Violation between Routing Via Style: Via (394mil,1959mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil
+   Violation between Routing Via Style: Via (407.526mil,2211.954mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil
+   Violation between Routing Via Style: Via (432.214mil,1904.163mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil
+   Violation between Routing Via Style: Via (433.142mil,1863.623mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil
+   Violation between Routing Via Style: Via (434.543mil,1818.953mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil
+   Violation between Routing Via Style: Via (435.417mil,2976.163mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil
+   Violation between Routing Via Style: Via (438.761mil,2902.363mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil
+   Violation between Routing Via Style: Via (439mil,221.5mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil
+   Violation between Routing Via Style: Via (440mil,1958mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil
+   Violation between Routing Via Style: Via (455.505mil,382.5mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil
+   Violation between Routing Via Style: Via (47.5mil,1833mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil
+   Violation between Routing Via Style: Via (472.338mil,2274mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil
+   Violation between Routing Via Style: Via (472.338mil,2320.938mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil
+   Violation between Routing Via Style: Via (472.338mil,2367.875mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil
+   Violation between Routing Via Style: Via (472.338mil,2414.812mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil
+   Violation between Routing Via Style: Via (472.338mil,2461.75mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil
+   Violation between Routing Via Style: Via (472.338mil,2569.5mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil
+   Violation between Routing Via Style: Via (504.93mil,2871.802mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil
+   Violation between Routing Via Style: Via (505.49mil,2916.102mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil
+   Violation between Routing Via Style: Via (505.5mil,1563mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil
+   Violation between Routing Via Style: Via (506.051mil,2828.905mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil
+   Violation between Routing Via Style: Via (514mil,382.5mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil
+   Violation between Routing Via Style: Via (563mil,1864mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil
+   Violation between Routing Via Style: Via (575mil,1596.5mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil
+   Violation between Routing Via Style: Via (580.5mil,221.5mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil
+   Violation between Routing Via Style: Via (690.5mil,2470mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil
+   Violation between Routing Via Style: Via (69mil,973mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil
+   Violation between Routing Via Style: Via (796.483mil,2577.234mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil
+   Violation between Routing Via Style: Via (858.711mil,1634.863mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil
+   Violation between Routing Via Style: Via (859.932mil,2577.234mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil
+   Violation between Routing Via Style: Via (914.825mil,1964.46mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil
+   Violation between Routing Via Style: Via (915.26mil,2005mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil
+   Violation between Routing Via Style: Via (915.588mil,1921.952mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil
+   Violation between Routing Via Style: Via (916.329mil,1878.586mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil
+   Violation between Routing Via Style: Via (933.5mil,804mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil
+   Violation between Routing Via Style: Via (954mil,748mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil
+   Violation between Routing Via Style: Via (980.188mil,2585.812mil) from Top Layer to Bottom Layer Actual Size : 30mil Actual Hole Size : 15mil
+Rule Violations :83
+
+Processing Rule : Differential Pairs Uncoupled Length using the Gap Constraints (Min=10mil) (Max=10mil) (Prefered=10mil)  and Width Constraints (Min=15mil) (Max=15mil) (Prefered=15mil) (All)
+Rule Violations :0
+
+Processing Rule : Power Plane Connect Rule(Relief Connect )(Expansion=20mil) (Conductor Width=10mil) (Air Gap=10mil) (Entries=4) (All)
+Rule Violations :0
+
+Processing Rule : Hole Size Constraint (Min=1mil) (Max=100mil) (All)
+Rule Violations :0
+
+Processing Rule : Hole To Hole Clearance (Gap=10mil) (All),(All)
+Rule Violations :0
+
+Processing Rule : Minimum Solder Mask Sliver (Gap=5.906mil) (All),(All)
+   Violation between Minimum Solder Mask Sliver Constraint: (4.594mil < 5.906mil) Between Pad 1-1(340.156mil,282.775mil) on Multi-Layer And Pad 1-A1-B12(384.246mil,305.019mil) on Top Layer [Top Solder] Mask Sliver [4.594mil]
+   Violation between Minimum Solder Mask Sliver Constraint: (4.6mil < 5.906mil) Between Pad 1-4(680.312mil,282.775mil) on Multi-Layer And Pad 1-B1-A12(636.216mil,305.019mil) on Top Layer [Top Solder] Mask Sliver [4.6mil]
+   Violation between Minimum Solder Mask Sliver Constraint: (3.311mil < 5.906mil) Between Pad BAT1-1(245.5mil,801mil) on Bottom Layer And Via (254mil,866.681mil) from Top Layer to Bottom Layer [Bottom Solder] Mask Sliver [3.311mil]
+   Violation between Minimum Solder Mask Sliver Constraint: (2.682mil < 5.906mil) Between Pad RST1-1(92.5mil,1896mil) on Multi-Layer And Via (155.288mil,1855.172mil) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [2.682mil] / [Bottom Solder] Mask Sliver [2.682mil]
+   Violation between Minimum Solder Mask Sliver Constraint: (5.208mil < 5.906mil) Between Pad RST1-1(92.5mil,1896mil) on Multi-Layer And Via (47.5mil,1833mil) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [5.208mil] / [Bottom Solder] Mask Sliver [5.208mil]
+   Violation between Minimum Solder Mask Sliver Constraint: (3.811mil < 5.906mil) Between Pad S1-1(1529.87mil,198.866mil) on Top Layer And Pad S1-2(1490.5mil,198.866mil) on Top Layer [Top Solder] Mask Sliver [3.811mil]
+   Violation between Minimum Solder Mask Sliver Constraint: (3.811mil < 5.906mil) Between Pad S1-2(1490.5mil,198.866mil) on Top Layer And Pad S1-3(1451.13mil,198.866mil) on Top Layer [Top Solder] Mask Sliver [3.811mil]
+   Violation between Minimum Solder Mask Sliver Constraint: (5.779mil < 5.906mil) Between Pad SD1-0(1340.048mil,912.236mil) on Bottom Layer And Pad SD1-9(1315.362mil,861.056mil) on Bottom Layer [Bottom Solder] Mask Sliver [5.779mil]
+   Violation between Minimum Solder Mask Sliver Constraint: (3.44mil < 5.906mil) Between Via (1613mil,2709mil) from Top Layer to Bottom Layer And Via (1644mil,2681.5mil) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [3.44mil] / [Bottom Solder] Mask Sliver [3.44mil]
+   Violation between Minimum Solder Mask Sliver Constraint: (2.551mil < 5.906mil) Between Via (432.214mil,1904.163mil) from Top Layer to Bottom Layer And Via (433.142mil,1863.623mil) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [2.551mil] / [Bottom Solder] Mask Sliver [2.551mil]
+   Violation between Minimum Solder Mask Sliver Constraint: (4.912mil < 5.906mil) Between Via (504.93mil,2871.802mil) from Top Layer to Bottom Layer And Via (506.051mil,2828.905mil) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [4.912mil] / [Bottom Solder] Mask Sliver [4.912mil]
+   Violation between Minimum Solder Mask Sliver Constraint: (2.542mil < 5.906mil) Between Via (914.825mil,1964.46mil) from Top Layer to Bottom Layer And Via (915.26mil,2005mil) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [2.542mil] / [Bottom Solder] Mask Sliver [2.542mil]
+   Violation between Minimum Solder Mask Sliver Constraint: (4.515mil < 5.906mil) Between Via (914.825mil,1964.46mil) from Top Layer to Bottom Layer And Via (915.588mil,1921.952mil) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [4.515mil] / [Bottom Solder] Mask Sliver [4.515mil]
+   Violation between Minimum Solder Mask Sliver Constraint: (5.373mil < 5.906mil) Between Via (915.588mil,1921.952mil) from Top Layer to Bottom Layer And Via (916.329mil,1878.586mil) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [5.372mil] / [Bottom Solder] Mask Sliver [5.372mil]
+Rule Violations :14
+
+Processing Rule : Silk To Solder Mask (Clearance=1mil) (IsPad),(All)
+   Violation between Silk To Solder Mask Clearance Constraint: (Collision < 1mil) Between Arc (585.5mil,801mil) on Bottom Overlay And Pad BAT1-2(905.5mil,801mil) on Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [0mil]
+   Violation between Silk To Solder Mask Clearance Constraint: (Collision < 1mil) Between Pad BAT1-1(245.5mil,801mil) on Bottom Layer And Track (285.5mil,561mil)(285.5mil,761mil) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0mil]
+   Violation between Silk To Solder Mask Clearance Constraint: (Collision < 1mil) Between Pad BAT1-1(245.5mil,801mil) on Bottom Layer And Track (285.5mil,841mil)(285.5mil,1032.716mil) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0mil]
+   Violation between Silk To Solder Mask Clearance Constraint: (Collision < 1mil) Between Pad S1-0(1382.232mil,171.307mil) on Top Layer And Track (1392.075mil,182.134mil)(1588.925mil,182.134mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mil]
+   Violation between Silk To Solder Mask Clearance Constraint: (Collision < 1mil) Between Pad S1-0(1382.232mil,171.307mil) on Top Layer And Track (1392.075mil,73.866mil)(1392.075mil,182.134mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mil]
+   Violation between Silk To Solder Mask Clearance Constraint: (Collision < 1mil) Between Pad S1-0(1382.232mil,84.693mil) on Top Layer And Track (1392.075mil,73.866mil)(1392.075mil,182.134mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mil]
+   Violation between Silk To Solder Mask Clearance Constraint: (Collision < 1mil) Between Pad S1-0(1382.232mil,84.693mil) on Top Layer And Track (1392.075mil,73.866mil)(1588.925mil,73.866mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mil]
+   Violation between Silk To Solder Mask Clearance Constraint: (Collision < 1mil) Between Pad S1-0(1598.768mil,171.307mil) on Top Layer And Track (1392.075mil,182.134mil)(1588.925mil,182.134mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mil]
+   Violation between Silk To Solder Mask Clearance Constraint: (Collision < 1mil) Between Pad S1-0(1598.768mil,171.307mil) on Top Layer And Track (1588.925mil,73.866mil)(1588.925mil,182.134mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mil]
+   Violation between Silk To Solder Mask Clearance Constraint: (Collision < 1mil) Between Pad S1-0(1598.768mil,84.693mil) on Top Layer And Track (1392.075mil,73.866mil)(1588.925mil,73.866mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mil]
+   Violation between Silk To Solder Mask Clearance Constraint: (Collision < 1mil) Between Pad S1-0(1598.768mil,84.693mil) on Top Layer And Track (1588.925mil,73.866mil)(1588.925mil,182.134mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mil]
+   Violation between Silk To Solder Mask Clearance Constraint: (Collision < 1mil) Between Pad S1-1(1529.87mil,198.866mil) on Top Layer And Track (1392.075mil,182.134mil)(1588.925mil,182.134mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mil]
+   Violation between Silk To Solder Mask Clearance Constraint: (Collision < 1mil) Between Pad S1-2(1490.5mil,198.866mil) on Top Layer And Track (1392.075mil,182.134mil)(1588.925mil,182.134mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mil]
+   Violation between Silk To Solder Mask Clearance Constraint: (Collision < 1mil) Between Pad S1-3(1451.13mil,198.866mil) on Top Layer And Track (1392.075mil,182.134mil)(1588.925mil,182.134mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mil]
+   Violation between Silk To Solder Mask Clearance Constraint: (Collision < 1mil) Between Pad SD1-0(1718mil,302mil) on Bottom Layer And Track (1270.362mil,271.598mil)(1804.362mil,271.598mil) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0mil]
+Rule Violations :15
+
+Processing Rule : Silk to Silk (Clearance=0.5mil) (All),(All)
+Rule Violations :0
+
+Processing Rule : Net Antennae (Tolerance=0mil) (All)
+Rule Violations :0
+
+Processing Rule : Board Clearance Constraint (Gap=0mil) (All)
+   Violation between Board Outline Clearance(Outline Edge): (9.299mil < 10mil) Between Board Edge And Track (14.5mil,1814mil)(14.5mil,1957mil) on Top Layer 
+   Violation between Board Outline Clearance(Outline Edge): (9.299mil < 10mil) Between Board Edge And Track (14.5mil,1814mil)(28.5mil,1800mil) on Top Layer 
+   Violation between Board Outline Clearance(Outline Edge): (9.299mil < 10mil) Between Board Edge And Track (14.5mil,1957mil)(184.957mil,2127.456mil) on Top Layer 
+   Violation between Board Outline Clearance(Outline Edge): (9mil < 10mil) Between Board Edge And Track (1443.571mil,14mil)(1443.571mil,73.866mil) on Top Overlay 
+   Violation between Board Outline Clearance(Outline Edge): (9mil < 10mil) Between Board Edge And Track (1443.571mil,14mil)(1490.5mil,14mil) on Top Overlay 
+   Violation between Board Outline Clearance(Outline Edge): (9mil < 10mil) Between Board Edge And Track (1490.5mil,14mil)(1490.5mil,73.866mil) on Top Overlay 
+   Violation between Board Outline Clearance(Outline Edge): (6.611mil < 10mil) Between Board Edge And Track (330.236mil,11.614mil)(330.236mil,71.614mil) on Top Overlay 
+   Violation between Board Outline Clearance(Outline Edge): (6.611mil < 10mil) Between Board Edge And Track (330.236mil,11.614mil)(690.236mil,11.614mil) on Top Overlay 
+   Violation between Board Outline Clearance(Outline Edge): (6.612mil < 10mil) Between Board Edge And Track (690.236mil,11.614mil)(690.236mil,71.614mil) on Top Overlay 
+Rule Violations :9
+
+Processing Rule : Height Constraint (Min=0mil) (Max=1000mil) (Prefered=500mil) (All)
+Rule Violations :0
+
+
+Violations Detected : 121
+Waived Violations : 0
+Time Elapsed        : 00:00:03
